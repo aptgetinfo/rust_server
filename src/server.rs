@@ -3,10 +3,10 @@ pub struct Server {
 }
 
 impl Server {
-    fn new(addr:String) -> Self {
+    pub fn new(addr:String) -> Self {
         Self { addr }
     }
-    fn run(self){
+    pub fn run(self){
         println!("Listening on {}",self.addr);
     }
 }
