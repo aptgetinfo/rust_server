@@ -11,11 +11,12 @@ impl Server {
         println!("Listening on {}",self.addr);
         let listner=TcpListener::bind(&self.addr).unwrap();
         loop {
-            let res=listner.accept();
-            if res.is_err() {
-                continue;
+            match listner.accept() {
+                OK((stream,_)) =>{
+                    println!("OK");
+                }
+                Err(e) => println("Failed to establish a connection {}",e);
             }
-            let (stream,addr) = res.unwrap();
         }
     }
 }
